@@ -9,10 +9,10 @@ function App() {
   const [showfinished, setShowfinished] = useState(true)
 
   useEffect(() => {
-    let LSdata = JSON.parse(localStorage.getItem("todos"))
+    let LSdata = JSON.parse(localStorage.getItem("todos")) || []
     setTodoList(LSdata)
-    const keys = Object.keys(localStorage);
-    console.log(keys);
+    // const keys = Object.keys(localStorage);
+    // console.log(keys);
   }, [])
 
   const handleEnterBtn = (e) =>{
@@ -28,8 +28,7 @@ function App() {
   }
 
   const handleAdd = () => {
-    if (todo.trim() === "")
-      return;
+    if (todo.trim() === ""){return};
     setTodoList([...todoList, { id: uuidv4(), todo: todo, isCompleted: false }])
     setTodo("")
     saveToLocalStorage()
@@ -69,7 +68,8 @@ function App() {
   }
   
   const addTasks = () => {
-    return (todoList!=null && todoList.map((item) => {
+    if (todoList != null ) {
+    return todoList.map((item) => {
       return (showfinished || !item.isCompleted) && <div key={item.id} className="todo flex cursor-pointer items-center justify-between rounded-md p-2 transition-all duration-200 hover:bg-slate-200">
         <div className="todoLeft flex items-center gap-2">
           <input checked={item.isCompleted ? true : false} type="checkbox" name={item.id} onChange={handleCheckbox} />
@@ -94,7 +94,7 @@ function App() {
 
         </div>
       </div>
-    }))
+    })}
   }
 
 
