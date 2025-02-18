@@ -69,7 +69,7 @@ function App() {
   }
   
   const addTasks = () => {
-    return todoList.map((item) => {
+    return (todoList!=null && todoList.map((item) => {
       return (showfinished || !item.isCompleted) && <div key={item.id} className="todo flex cursor-pointer items-center justify-between rounded-md p-2 transition-all duration-200 hover:bg-slate-200">
         <div className="todoLeft flex items-center gap-2">
           <input checked={item.isCompleted ? true : false} type="checkbox" name={item.id} onChange={handleCheckbox} />
@@ -94,7 +94,7 @@ function App() {
 
         </div>
       </div>
-    })
+    }))
   }
 
 
