@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: #c4d0ef;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #a3b7e8;
+    border-radius: 10px;
+}
+
+body {
+    /* background: #000; */
+    background: linear-gradient(to bottom right, #f4e1d2, #a0c4ff);
+}
