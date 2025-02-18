@@ -43,7 +43,7 @@ function App() {
     let newTodoList = [...todoList]
     newTodoList[index].isCompleted = newTodoList[index].isCompleted?false:true;
     setTodoList(newTodoList)
-    addToCompletedList()
+    // addToCompletedList()
     saveToLocalStorage();
   }
 
